@@ -19,12 +19,15 @@ export default function Add_Vehicle() {
     }, [])
 
     function Delete (id){
+      let Confirm = window.confirm("Are you sure?");
+      if(Confirm){
         const baseuRL = `${baseUrl}/Vehicles/`
          axios
          .delete(`${baseuRL}${id}`)
          .then(() => {
           alert("Deleted Successfully")
          });
+        }
      }
  
      function Submit(){

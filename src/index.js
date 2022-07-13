@@ -20,6 +20,7 @@ import Report_policy from "./UserDashboard/Report_policy";
 import Add_Policies from "./AdminDashboardPages/Add_Policies";
 import Add_Vehicle from "./AdminDashboardPages/Add_Vehicle";
 import GlobaldataProider from "./ContextDB/Context"
+import Reports from "./UserDashboard/Reports";
 
 
 
@@ -48,6 +49,7 @@ export default function App() {
          <Route path="/Lodge_claim" element={<Lodge_claim />} />
          <Route path="/Report_policy" element={<Report_policy />} />
          <Route path="/Renew_policy" element={<Renew_policy />} />
+         <Route path="/Reports" element={<Reports />} />
 
 
          <Route path="/AdminRegister" element={<AdminRegister />} />

@@ -13,8 +13,10 @@ export default function Menu({name}) {
        }, [])
    
        function Logout(){
+        
            localStorage.removeItem("auth")
            localStorage.removeItem("Userdata")
+           alert("Logout Successfully")
            window.location.replace("/")
        }
   return (

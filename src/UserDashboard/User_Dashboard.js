@@ -56,6 +56,14 @@ export default function User_Dashboard() {
                     </div>
 </a>
 
+
+<a href="/Reports">
+                    <div className="dash_card">
+                        <img src="https://images.cdn4.stockunlimited.net/preview1300/reports-icon_1525734.jpg" alt="" />
+                        <h5>All Reports</h5>
+                    </div>
+</a>
+
                     
                 </div>
             </div>

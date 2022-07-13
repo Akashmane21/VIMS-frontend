@@ -25,6 +25,8 @@ export default function Insurance_claim() {
 
 
 function Delete(id){
+  let Confirm = window.confirm("Are you sure?");
+  if(Confirm){
   const baseuRL = `${baseUrl}/Claims/`
          axios
          .delete(`${baseuRL}/${id}`)
@@ -33,6 +35,7 @@ function Delete(id){
      window.location.reload()
 
          });
+        }
 
 }
 

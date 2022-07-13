@@ -19,12 +19,15 @@ export default function Manage_emp() {
     }, [])
 
     function Delete (id){
+      let Confirm = window.confirm("Are you sure?");
+      if(Confirm){
         const baseURL = `${baseUrl}/AllPolicies/`
          axios
          .delete(`${baseURL}${id}`)
          .then(() => {
           alert("Deleted Successfully")
          });
+        }
      }
  
      function Submit(){

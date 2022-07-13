@@ -25,7 +25,20 @@ export default function Claim_Status() {
   }, [])
 
   function Delete(id){
-
+  //  const result = confirm("Are you sure");
+  //  alert(result)
+   let Confirm = window.confirm("Are you sure?");
+  if(Confirm){
+    axios
+    .delete(`${baseUrl}/Claims/${id}`)
+    .then((response) => {
+      alert("Deleted Successfully")
+      window.location.reload()
+    })
+    .then((err) => {
+      console.log(err);
+    });
+  }
   }
   return (
     <div>
@@ -77,7 +90,7 @@ export default function Claim_Status() {
       <td>{data.policyid}</td>
       <td>{data.vehid}</td>
      
-      <td><a href='' onClick={()=>Delete(data.claim_id)}> DELETE</a></td>
+      <td><a onClick={()=>Delete(data.claim_id)}> DELETE</a></td>
     </tr>
             ))}
    

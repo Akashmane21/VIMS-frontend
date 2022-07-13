@@ -19,12 +19,15 @@ export default function Add_Policies() {
     }, [])
 
     function Delete (id){
+      let Confirm = window.confirm("Are you sure?");
+      if(Confirm){
         const baseuRL = `${baseUrl}/AllPolicies/`
          axios
          .delete(`${baseuRL}${id}`)
          .then(() => {
           alert("Deleted Successfully")
          });
+        }
      }
  
      function Submit(){
