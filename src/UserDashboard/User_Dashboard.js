@@ -1,10 +1,11 @@
 import React from 'react'
+import Navbar from '../comps/Navbar'
 import Menu from './Menu'
 
 export default function User_Dashboard() {
   return (
     <div>
-                  <Menu />
+                  <Menu name="User Dashboard " />
            
 
             <div className="rightbody" >
@@ -46,12 +47,12 @@ export default function User_Dashboard() {
                     </div>
 </a>
 
-<a href="/Report_policy">
+<a href="/Claim_status">
 
 
                     <div className="dash_card">
                         <img src="https://images.cdn4.stockunlimited.net/preview1300/reports-icon_1525734.jpg" alt="" />
-                        <h5>Report of insurance policy</h5>
+                        <h5>CLAIM TRACK STATUS</h5>
                     </div>
 </a>
 

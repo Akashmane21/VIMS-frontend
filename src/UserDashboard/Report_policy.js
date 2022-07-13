@@ -4,8 +4,7 @@ import Menu from './Menu'
 export default function Report_policy() {
   return (
     <div>
-      
-                  <Menu />
+<Menu name="Report policy" />
             <div className="rightbody" >
 
             <div className="d-flex title" style={{alignItems:"center"}}>

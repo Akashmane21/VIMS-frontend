@@ -1,37 +1,55 @@
-import React from 'react'
+import React , {useEffect , useState} from 'react'
 import './styles.css'
-export default function Menu() {
+export default function Menu({name}) {
+    const [namee, setnamee] = useState("")
+    useEffect(() => {
+        if(localStorage.getItem("auth")!=null){
+           const userdata = JSON.parse(localStorage.getItem("Userdata"))
+           setnamee(userdata.first_name)
+        }
+        else{
+           window.location.replace("/")
+        }
+       }, [])
+   
+       function Logout(){
+           localStorage.removeItem("auth")
+           localStorage.removeItem("Userdata")
+           window.location.replace("/")
+       }
   return (
-    <div>
-       <div className="all">
-            <img src="https://static.vecteezy.com/system/resources/previews/000/379/274/non_2x/user-management-vector-icon.jpg" alt="" />
+    <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            {/* <a class="navbar-brand" href='/' style={{color:'#007fff'}}>Vehicle Insurance policy</a> */}
+            <a class="navbar-brand" href='/Admin_Dashboard' style={{color:'#007fff'}}> Admin Dashboard  ></a>
+           
+            <div class="navbar-collapse collapse d-flex j" style={{display:"flex" , justifyContent:"space-between"}}>
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link " >{name}</a>
+                    </li>
+                    
+                </ul>
+                <div>
+                        <ul className='navbar-nav flex-grow-1'>
 
-            <div className="menuitems">
-            <div className="registertitle cardd">
 
-<img src="https://st4.depositphotos.com/27867620/30419/v/450/depositphotos_304191084-stock-illustration-propose-web-icon-simple-design.jpg" alt="" />
-<h6>Home </h6>
-    </div>
-
-            <a href="/Admin_Dashboard">
-
-            <div className="registertitle cardd">
-
-            <img src="https://thumbs.dreamstime.com/b/dashboard-admin-monitor-monitoring-processing-flat-color-icon-vector-148914658.jpg" alt="" />
-            <h6>Dashboard</h6>
-                </div>
-            </a>
-
-              
-
-                <div className="registertitle cardd">
-
-            <img src="https://static.vecteezy.com/system/resources/previews/000/501/314/original/question-icon-design-vector.jpg" alt="" />
-            <h6 style={{ paddingRight:20}}>Questions </h6>
-                </div>
-
+                   
+                        <li class="nav-item">
+                        <a class="nav-link ">{namee}</a>
+                    </li> <li class="nav-item">
+                        <a class="nav-link " onClick={Logout}>Logout</a>
+                    </li>
+                    
+                    
+                        </ul>
+                    </div>
+                   
+                  
             </div>
         </div>
-    </div>
+    </nav>
+</header>
   )
 }

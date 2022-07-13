@@ -1,14 +1,26 @@
 import React from 'react'
 import axios from "axios";
-
+import Navbar from '../comps/Navbar';
+import { Formik, Field, Form } from "formik";
+import { useCounter } from "../ContextDB/Context";
 export default function UserRegister() {
+    const { baseUrl} =useCounter()
 
-    function AddUser(){
-        
+    function AddUser(values){
+        axios
+        .post(`${baseUrl}/Customers/`, values)
+        .then((response) => {
+         alert("Successfully Added")
+        //  window.location.reload()
+        })
+        .then((err) => {
+          console.log(err);
+        });
     }
     
   return (
     <>
+    <Navbar />
     <div className='m-4'>
      
 
@@ -24,45 +36,62 @@ export default function UserRegister() {
 <hr />
 <div class="row">
     <div class="col-md-4 ">
-        {/* <form > */}
+
+
+    <Formik
+        initialValues={{ }}
+        onSubmit={async (values) => {
+          await new Promise((resolve) => setTimeout(resolve, 500));
+          AddUser(values)
+        }}
+      >
+        <Form>
         <div class="form-group">
                 <label for="First Name" class="control-label">First Name</label>
-                <input id="Firstname" class="form-control" />
+                <Field required={true} name="first_name" type="text" class="form-control" />
             </div>
             <div class="form-group">
                 <label for="Last Name" class="control-label">Last Name</label>
-                <input id="Lastname" class="form-control" />
+                <Field required={true} name="last_name" type="text" class="form-control" />
             </div>
 
             <div class="form-group">
                 <label for="Address" class="control-label">Address</label>
-                <input id="Address" class="form-control" />
+                <Field required={true} name="address" type="text" class="form-control" />
             </div>
         
             <div class="form-group ">
                 <label for="Email" class="control-label">Email</label>
-                <input id="Email" type="email" class="form-control" />
+                <Field required={true} name="email" type="email"  class="form-control" />
             </div>
             
             <div class="form-group">
                 <label for="Password" class="control-label">Password</label>
-                <input id="Password" type="password" class="form-control" />
+                <Field required={true} name="password" type="password"  class="form-control" />
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style={{ marginRight:200 }}>
                 <label for="Phone" class="control-label">Phone</label>
-                <input id="Phone" type="number" class="form-control" />
+                <Field required={true} name="phone_no" type="text" class="form-control" />
             </div>
-           
-           
-            <br />
             <div class="form-group">
-                <a class="btn btn-primary" onClick={AddUser} > Register Now </a>
-            </div>
-            <br />
-            <br />
+                
+                 </div>
+            <br /><br />
+            
+            <div class="form-group" style={{marginTop:40 , marginBottom:30 }}>
+          <button type="submit" class="btn btn-primary form-control">Submit</button>
+          </div>
+        </Form>
+      </Formik>
+
+
+
+
+
+            
             <h5>Already existing user ? <a href="/UserLogin">login</a></h5>
-        {/* </form> */}
+
     </div>
 </div>
 

@@ -255,3 +255,19 @@ a:hover{
   
   color: #007fff;
 }
+
+.polyblock{
+width: 300px;
+margin: 10px;
+padding: 10px;
+border-radius: 10px;
+font-family: serif;
+background-color: rgba(220, 179, 29, 0.434);
+}
+.polyblock:hover{
+  border: 2px solid red;
+  cursor: pointer;
+}
+.poly{
+  display: flex;
+}
